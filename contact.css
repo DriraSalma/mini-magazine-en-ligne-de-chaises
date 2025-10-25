@@ -1,0 +1,93 @@
+
+
+/* --- Section Contact --- */
+.contact-section {
+    margin-top: 100px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact-section h1 {
+    color: darkorange;
+    font-size: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    max-width: 300px;
+    text-align: left;
+}
+
+.contact-info i {
+    color: darkorange;
+    margin-right: 8px;
+}
+
+.social-icons a {
+    color: #333;
+    margin-right: 10px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: darkorange;
+}
+
+/* --- Formulaire --- */
+.contact-form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: none;
+}
+
+.send-btn {
+    background-color: #EF7722;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    background-color: darkorange;
+}
+
+
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+}

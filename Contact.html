@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaires et décorations</title>
+    <link rel="stylesheet" href="acceuil.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><img src="./images/logo.png" alt="logo"></div>
+
+         <input type="text" placeholder="Rechercher..." class="sidebar-search">
+        <ul class="nav-links">
+            <li><a> <i class="fa-solid fa-cart-shopping"></i></a> 
+            </li>
+            <li><a href="acceuil.html">Accueil</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Profile.html">Profil</a></li>
+
+            <li style="padding-right: 20px;">
+                <a href="login.html" class="logout-btn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </li>
+
+
+        </ul>
+
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <h1>Contactez-nous</h1>
+        <p>Nous serons ravis de répondre à vos questions ou de vous aider avec votre commande.</p>
+
+        <div class="contact-container">
+
+
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+                <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+            </form>
+           
+            
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h4>À propos</h4>
+                <p>Site e-commerce spécialisé dans les chaires et décorations.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="acceuil.html">Accueil</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="Profile.html">Mon compte</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <div class="contact-info">
+                    <h3>Nos coordonnées</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Tunis, Tunisie</p>
+                    <p><i class="fa-solid fa-phone"></i> +216 55 123 456</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@monsite.com</p>
+
+                </div>
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 MonSite. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // ---- JS pour le menu burger ----
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>

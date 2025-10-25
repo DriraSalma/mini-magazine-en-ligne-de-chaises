@@ -1,0 +1,224 @@
+.article-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin: 100px 20px 50px 20px;
+}
+
+.article-image img {
+    margin-top: 10px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.article-details {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.article-image h1 {
+    font-size: 36px;
+    text-align: left;
+    margin: 0px;
+}
+
+.article-details .price {
+    font-size: 24px;
+    color: darkorange;
+    font-weight: bold;
+}
+
+.article-details p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.article-details .order {
+    width: 200px;
+    padding: 10px;
+    background-color: #EF7722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.article-details .order:hover {
+    background-color: darkorange;
+}
+/* 🌟 Détails supplémentaires du produit */
+.article-details h3 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+    border-left: 4px solid darkorange;
+    padding-left: 8px;
+}
+
+.article-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.article-details ul li {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin: 8px 0 15px;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.quantity {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Bouton “Ajouter au panier” amélioré */
+.article-details .order i {
+    margin-right: 8px;
+}
+
+.article-details .order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EF7722;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.article-details .order:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+/* Adaptation mobile pour les nouvelles sections */
+@media screen and (max-width: 600px) {
+    .article-details h3 {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+
+    .color-swatch {
+        width: 20px;
+        height: 20px;
+    }
+
+    .quantity {
+        width: 50px;
+        font-size: 14px;
+    }
+
+    .article-details ul li {
+        font-size: 14px;
+    }
+}
+
+
+/* 🌐 Version mobile */
+@media screen and (max-width: 600px) {
+    .article-container {
+        display: flex;
+        flex-direction: column; /* Image à gauche, texte à droite */
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 15px;
+        flex-wrap: nowrap; /* Empêche le retour à la ligne entre image et texte */
+    }
+
+    .article-image {
+        flex: 1 1 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .article-image img {
+        width: 100%;
+        max-width: 150px;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 2px 6px;
+    }
+
+    .article-details {
+        flex: 1 1 60%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 8px;
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .article-details h1 {
+        font-size: 18px;
+        color: #222;
+        margin: 0;
+    }
+
+    .article-details p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .article-details .price {
+        font-size: 16px;
+        color: darkorange;
+        font-weight: bold;
+    }
+
+    .article-details .order {
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustements visuels */
+    .color-options {
+        justify-content: center;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 15px 10px;
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chair 2 - Détails</title>
+  <link rel="stylesheet" href="../acceuil.css">
+  <link rel="stylesheet" href="./Chaire1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+
+     <input type="text" placeholder="Rechercher..." class="sidebar-search">
+        <ul class="nav-links">
+            <li><a> <i class="fa-solid fa-cart-shopping"></i></a> 
+            </li>
+      <li><a href="../acceuil.html">Accueil</a></li>
+      <li><a href="../Contact.html">Contact</a></li>
+      <li><a href="../Profile.html">Profil</a></li>
+      <li style="padding-right: 20px;">
+        <a href="login.html" class="logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="article-container">
+    <div class="article-image">
+      <img src="../images/i4.jpg" alt="Chair 1">
+    </div>
+
+    <div class="article-details">
+      <h1>Chaise Confort Élégance</h1>
+      <p class="price">50 DT</p>
+
+      <h3>Description</h3>
+      <p>
+        Cette chaise moderne au design élégant est parfaite pour votre salon, salle à manger ou bureau.
+        Fabriquée en bois massif et tissu de qualité, elle allie confort, solidité et style contemporain.
+      </p>
+
+      <h3>Détails du produit</h3>
+      <ul>
+        <li><strong>Dimensions :</strong> 80cm x 60cm x 90cm</li>
+        <li><strong>Matériaux :</strong> Bois, tissu haut de gamme</li>
+        <li><strong>Poids :</strong> 7 kg</li>
+        <li><strong>Garantie :</strong> 2 ans</li>
+      </ul>
+
+      <h3>Couleurs disponibles</h3>
+      <div class="color-options">
+        <span class="color-swatch" style="background-color: #8B4513;"></span>
+        <span class="color-swatch" style="background-color: #d2b48c;"></span>
+        <span class="color-swatch" style="background-color: #000;"></span>
+      </div>
+
+      <h3>Quantité</h3>
+      <input type="number" min="1" value="1" class="quantity">
+
+      <br><br>
+      <button class="order"><i class="fa-solid fa-cart-shopping"></i> Ajouter au panier</button>
+
+      <br><br>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h4>À propos</h4>
+        <p>Site e-commerce spécialisé dans les chaises et la décoration intérieure.</p>
+      </div>
+      <div class="footer-section links">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="../acceuil.html">Accueil</a></li>
+          <li><a href="../Contact.html">Contact</a></li>
+          <li><a href="../Profile.html">Mon compte</a></li>
+        </ul>
+      </div>
+      <div class="footer-section social">
+        <div class="contact-info">
+          <h4>Nos coordonnées</h4>
+          <p><i class="fa-solid fa-location-dot"></i> Tunis, Tunisie</p>
+          <p><i class="fa-solid fa-phone"></i> +216 55 123 456</p>
+          <p><i class="fa-solid fa-envelope"></i> contact@monsite.com</p>
+
+        </div>
+        <h4>Suivez-nous</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 MonSite. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+
+</html>
