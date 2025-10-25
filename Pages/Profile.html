@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaires et décorations</title>
-    <link rel="stylesheet" href="acceuil.css">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="../acceuil.css">
+    <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -14,13 +14,12 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo"><img src="./images/logo.png" alt="logo"></div>
-
-         <input type="text" placeholder="Rechercher..." class="sidebar-search">
+        <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+        <input type="text" placeholder="Rechercher..." class="sidebar-search">
         <ul class="nav-links">
-            <li><a> <i class="fa-solid fa-cart-shopping"></i></a> 
+            <li><a> <i class="fa-solid fa-cart-shopping"></i></a>
             </li>
-            <li><a href="acceuil.html">Accueil</a></li>
+            <li><a href="../acceuil.html">Accueil</a></li>
             <li><a href="Contact.html">Contact</a></li>
             <li><a href="Profile.html">Profil</a></li>
 
@@ -39,22 +38,32 @@
             <div></div>
         </div>
     </nav>
+    <section class="profile-container">
+        <h2>Mon Profil</h2>
+        <div class="profile-card">
+            <div class="profile-image">
+                <img src="./images/avatar.png" alt="Photo de profil">
+                <button class="change-photo">Changer la photo</button>
+            </div>
 
-    <section class="contact-section">
-        <h1>Contactez-nous</h1>
-        <p>Nous serons ravis de répondre à vos questions ou de vous aider avec votre commande.</p>
+            <form class="profile-form">
+                <label>Nom complet</label>
+                <input type="text" value="Salma Drira">
 
-        <div class="contact-container">
+                <label>Email</label>
+                <input type="email" value="salma@example.com">
 
+                <label>Mot de passe</label>
+                <input type="password" placeholder="••••••••">
 
-            <form class="contact-form">
-                <input type="text" name="name" placeholder="Votre nom" required>
-                <input type="email" name="email" placeholder="Votre email" required>
-                <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-                <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+                <label>Adresse</label>
+                <input type="text" value="Tunis, Tunisie">
+
+                <label>Téléphone</label>
+                <input type="text" value="+216 55 555 555">
+
+                <button type="submit" class="save-btn"><i class="fas fa-save"></i> Enregistrer</button>
             </form>
-           
-            
         </div>
     </section>
     <footer class="site-footer">
@@ -66,20 +75,21 @@
             <div class="footer-section links">
                 <h4>Liens rapides</h4>
                 <ul>
-                    <li><a href="acceuil.html">Accueil</a></li>
+                    <li><a href="../acceuil.html">Accueil</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                     <li><a href="Profile.html">Mon compte</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <div class="contact-info">
-                    <h3>Nos coordonnées</h3>
+                    <h4>Nos coordonnées</h4>
                     <p><i class="fa-solid fa-location-dot"></i> Tunis, Tunisie</p>
                     <p><i class="fa-solid fa-phone"></i> +216 55 123 456</p>
                     <p><i class="fa-solid fa-envelope"></i> contact@monsite.com</p>
 
                 </div>
                 <h4>Suivez-nous</h4>
+
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -101,7 +111,4 @@
             navLinks.classList.toggle('active');
         });
     </script>
-
 </body>
-
-</html>
