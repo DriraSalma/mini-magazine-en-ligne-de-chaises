@@ -1,6 +1,6 @@
 body {
     margin: 0;
-  
+
     font-family: 'Roboto', sans-serif;
 }
 
@@ -248,7 +248,7 @@ body {
     }
 
     .item img {
-                width:100%;
+        width: 100%;
 
         width: 250px;
         height: 250px;
@@ -322,8 +322,8 @@ body {
         align-items: center;
         background-color: #F5EFE6;
         padding: 8px;
-    
-position: fixed;
+
+        position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
@@ -344,7 +344,7 @@ position: fixed;
     }
 
     .nav-links li {
-        
+
         width: 90%;
         text-align: center;
         padding: 10px 0;
@@ -383,8 +383,8 @@ position: fixed;
     }
 
     .login-btn {
-        background-color:  white ;
-        color:#EF7722;
+        background-color: white;
+        color: #EF7722;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -517,7 +517,7 @@ position: fixed;
     }
 
     .item img {
-                width:100%;
+        width: 100%;
 
         width: 100px;
         height: 100px;
@@ -583,7 +583,7 @@ position: fixed;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color:#F5EFE6;
+        background-color: #F5EFE6;
         position: fixed;
         width: 100%;
         top: 0;
@@ -600,7 +600,8 @@ position: fixed;
     .burger div {
         width: 25px;
         height: 3px;
-        background-color: #EF7722; /* burger orange */
+        background-color: #EF7722;
+        /* burger orange */
         border-radius: 2px;
     }
 
@@ -616,16 +617,18 @@ position: fixed;
         list-style: none;
         padding: 10px 0;
     }
-.nav-links.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 60%;
-    background-color:#ebe3dc;
-    z-index: 1001; /* plus grand que le nav */
-}
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 60%;
+        background-color: #ebe3dc;
+        z-index: 1001;
+        /* plus grand que le nav */
+    }
 
     .nav-links li {
         width: 100%;
@@ -751,7 +754,7 @@ position: fixed;
     }
 
     .item img {
-        width:100%;
+        width: 100%;
         width: 150px;
         height: 150px;
         margin: auto;
