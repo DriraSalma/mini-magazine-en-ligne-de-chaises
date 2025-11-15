@@ -1,44 +1,64 @@
 # Mini Magazine en Ligne de Chaises
 
 ## Description du projet
-Ce projet est un **mini magazine en ligne** dédié à la présentation et à la vente de chaises et décorations. Il a été conçu pour offrir une interface simple, claire et moderne permettant aux utilisateurs de :  
+Ce projet est un **mini magazine en ligne** dédié à la présentation et à la vente de chaises et décorations.  
+Il propose une interface simple, moderne et responsive permettant aux utilisateurs de :
 
-- **Consulter les produits** avec images et prix.  
-- **Voir la description détaillée** de chaque produit.  
-- **Naviguer facilement** grâce à un menu et un design responsive adapté aux mobiles et tablettes.  
-- **Contacter l’équipe** via un formulaire de contact fonctionnel avec icônes sociales.  
+- Consulter les produits avec images et prix.  
+- Accéder à des descriptions courtes.  
+- Naviguer facilement grâce à un menu fluide adapté au mobile et au desktop.  
+- Contacter l’équipe via un formulaire avec icônes sociales.
 
-Le site utilise **HTML, CSS et JavaScript** pour l’interactivité. La mise en page est optimisée pour le desktop et le mobile grâce à un design responsive.
+Le site utilise **HTML, CSS et JavaScript** pour l’interactivité et la gestion dynamique du contenu.
+
+---
+
+## Fonctionnalités JavaScript
+
+### 🔐 Authentification (Inscription / Connexion)
+- Inscription avec stockage des données utilisateur dans **localStorage**.  
+- Connexion utilisant **sessionStorage** pour maintenir la session.  
+- Vérification des identifiants et affichage du nom de l’utilisateur connecté.
+
+---
+
+### 🛒 Panier d’achat complet
+- Ajout de produits au panier.  
+- Gestion de la **quantité** pour chaque produit.  
+- **Suppression** d’un article.  
+- **Calcul automatique du total** du panier.  
+- Sauvegarde du panier via **localStorage** pour conserver les données.  
+- Mise à jour dynamique du nombre d’articles dans l’icône du panier.
+
+---
+
+### ⚙️ Autres interactions
+- Mise à jour de l’interface selon l’état de connexion (connecté / non connecté).  
+- Affichage conditionnel des fonctionnalités selon le statut de l’utilisateur.  
 
 ---
 
 ## Objectifs futurs
-Le projet est encore en développement et nous prévoyons d’améliorer les fonctionnalités suivantes :  
-
-- **Ajout d’un panier d’achat** pour permettre la commande en ligne.  
-- **Filtrage et tri des produits** par catégorie, prix ou popularité.  
-- **Création d’une page produit détaillée** pour chaque produit avec description complète, galerie d’images et bouton “Ajouter au panier”.  
-- **Création d’une page catégories** pour organiser les produits par type (Chaises, Décorations, Accessoires).  
-- **Animations et effets interactifs** pour rendre l’expérience utilisateur plus dynamique.  
-- **Connexion à une base de données** pour gérer les produits et les commandes en temps réel.  
+- Filtrage et tri des produits (prix, catégories, popularité).  
+- Création d’une page produit détaillée avec galerie d’images.  
+- Page catégories.  
+- Ajout d’animations et d’effets interactifs.  
+- Connexion à une base de données pour gérer les produits et les commandes en temps réel.
 
 ---
 
-## Lien de démonstration
-Une **version en ligne** est disponible pour visualiser le site :  
-
-[Voir le site en live](https://DriraSalma.github.io/mini-magazine-en-ligne-de-chaises/)
+## Démo
+👉 [Voir le site en live](https://DriraSalma.github.io/mini-magazine-en-ligne-de-chaises/)
 
 ---
-
 
 ## Technologies utilisées
-- HTML5  
-- CSS3 (Flexbox, Responsive Design)  
-- JavaScript (pour l’interactivité)  
+- **HTML5**  
+- **CSS3** (Flexbox, Responsive Design)  
+- **JavaScript** (LocalStorage, SessionStorage, Panier complet)
 
 ---
 
 ## Auteur
 **Salma Drira**  
-[GitHub](https://github.com/DriraSalma)
+🔗 [GitHub](https://github.com/DriraSalma)
