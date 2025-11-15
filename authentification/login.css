@@ -7,7 +7,8 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    margin-top: 111px;
+margin-top: 110px;
+margin-top: 0px;
     width: 750px;
     height: 450px;
     background: darkorange;
@@ -85,7 +86,7 @@ body {
         width: 90%;
         height: auto;
         margin-left: 20px;
-        margin-top: 250px;
+        margin-top: 150px;
         border-radius: 20px;
     }
 
