@@ -8,6 +8,42 @@
     <link rel="stylesheet" href="../acceuil.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        window.onload = function () {
+            const user = JSON.parse(sessionStorage.getItem("loggedUser"));
+
+            if (!user) {
+                alert("Veuillez vous connecter !");
+                window.location.href = "../authentification/login.html";
+                return;
+            }
+
+            // Afficher les infos dans les champs
+            document.getElementById("nom").value = user.nom + " " + user.prenom;
+            document.getElementById("email").value = user.email;
+            document.getElementById("password").value = user.password ? "••••••••" : "";
+            document.getElementById("adresse").value = user.adresse;
+            document.getElementById("tel").value = user.tel;
+        };
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoutBtn = document.querySelector(".logout-btn");
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    // Supprimer la session
+                    sessionStorage.removeItem("loggedUser");
+
+                    alert("Vous êtes déconnecté.");
+
+                    // Redirection vers login
+                    window.location.href = "../authentification/login.html";
+                });
+            }
+        });
+
+    </script>
 
 </head>
 
@@ -48,22 +84,23 @@
 
             <form class="profile-form">
                 <label>Nom complet</label>
-                <input type="text" value="Salma Drira">
+                <input type="text" id="nom">
 
                 <label>Email</label>
-                <input type="email" value="salma@example.com">
+                <input type="email" id="email">
 
                 <label>Mot de passe</label>
-                <input type="password" placeholder="••••••••">
+                <input type="password" id="password" placeholder="••••••••">
 
                 <label>Adresse</label>
-                <input type="text" value="Tunis, Tunisie">
+                <input type="text" id="adresse">
 
                 <label>Téléphone</label>
-                <input type="text" value="+216 55 555 555">
-
+                <input type="text" id="tel">
                 <button type="submit" class="save-btn"><i class="fas fa-save"></i> Enregistrer</button>
+
             </form>
+
         </div>
     </section>
     <footer class="site-footer">
@@ -75,7 +112,7 @@
             <div class="footer-section links">
                 <h4>Liens rapides</h4>
                 <ul>
-                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../acceuil.html">Accueil</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                     <li><a href="Profile.html">Mon compte</a></li>
                 </ul>

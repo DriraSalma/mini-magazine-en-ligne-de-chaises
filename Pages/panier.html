@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chair 2 - Détails</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../acceuil.css">
+    <link rel="stylesheet" href="./panier.css">
+    <script src="panier.js" defer></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+
+        <input type="text" placeholder="Rechercher..." class="sidebar-search">
+        <ul class="nav-links">
+            <li><a> <i class="fa-solid fa-cart-shopping"></i></a>
+            </li>
+            <li><a href="../acceuil.html">Accueil</a></li>
+            <li><a href="../Pages/Contact.html">Contact</a></li>
+            <li><a href="../Pages/Profile.html">Profil</a></li>
+            <li style="padding-right: 20px;">
+                <a href="../authentification/login.html" class="logout-btn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container-panier">
+        <h1> Mon Panier</h1>
+
+        <div id="cart-container">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    <!-- Les produits seront insérés ici via panier.js -->
+                </tbody>
+
+            </table>
+
+            <h2 id="total">Total : 0 DT</h2>
+            <button id="checkout-btn">Passer la commande</button>
+        </div>
+
+    </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h4>À propos</h4>
+                <p>Site e-commerce spécialisé dans les chaises et la décoration intérieure.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="../acceuil.html">Accueil</a></li>
+                    <li><a href="../Pages/Contact.html">Contact</a></li>
+                    <li><a href="../Pages/Profile.html">Profil</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <div class="contact-info">
+                    <h4>Nos coordonnées</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Tunis, Tunisie</p>
+                    <p><i class="fa-solid fa-phone"></i> +216 55 123 456</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@monsite.com</p>
+
+                </div>
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 MonSite. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

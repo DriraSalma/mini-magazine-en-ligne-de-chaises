@@ -1,0 +1,138 @@
+ /* Rendre le body un flex container vertical */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* prend toute la hauteur de l'écran */
+    margin: 0;
+}
+
+/* Contenu principal (tout sauf le footer) */
+.container-panier {
+    flex: 1; /* prend tout l'espace disponible */
+}
+
+
+
+ h1 {
+     text-align: center;
+     color: #ff6600;
+     margin: 40px 0 20px;
+     font-family: 'Roboto', sans-serif;
+ }
+
+ .container-panier {
+     margin-top: 60px;
+ }
+
+ #cart-container {
+     width: 90%;
+     max-width: 1100px;
+     margin-top: 360px;
+     margin: 0 auto 50px;
+     background: #fff;
+     padding: 25px;
+     border-radius: 15px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
+
+ .cart-table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-bottom: 25px;
+ }
+
+ .cart-table th {
+     background-color: #EF7722;
+     color: white;
+     text-transform: uppercase;
+     font-weight: 600;
+     padding: 12px;
+     border-radius: 8px 8px 0 0;
+ }
+
+ .cart-table td {
+     padding: 15px;
+     border-bottom: 1px solid #ddd;
+     text-align: center;
+     vertical-align: middle;
+ }
+
+ .cart-table img {
+     width: 70px;
+     height: 70px;
+     border-radius: 10px;
+     object-fit: cover;
+ }
+
+ #total {
+     text-align: right;
+     font-size: 1.4em;
+     font-weight: bold;
+     color: #333;
+     margin-top: 15px;
+ }
+
+ .remove-btn {
+     background-color: transparent;
+     border: none;
+     color: #EF7722;
+     font-size: 20px;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+
+ .remove-btn:hover {
+     color: #EF7722;
+ }
+
+ .checkout-container {
+     text-align: right;
+     margin-top: 20px;
+ }
+
+ #checkout-btn {
+     margin-left: 45%;
+     background-color: #ff6600;
+     color: white;
+     border: none;
+     padding: 12px 25px;
+     font-size: 16px;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+
+ #checkout-btn:hover {
+     background-color: #e55a00;
+ }
+
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    .cart-table th, .cart-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+
+    #checkout-btn {
+        margin: 0;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* TABLETTE */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .cart-table th, .cart-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+   
+
+    #checkout-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}

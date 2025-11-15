@@ -8,107 +8,85 @@
     <link rel="stylesheet" href="acceuil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cartIcons = document.querySelectorAll(".add-to-cart");
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cartIcons = document.querySelectorAll(".add-to-cart");
 
-            // Récupérer l'utilisateur connecté
-            const user = JSON.parse(sessionStorage.getItem("loggedUser"));
-            
-              
-            
-            if (!user) {
-              alert("Veuillez vous connecter pour gérer le panier !");
-                return;
-                navLinks.innerHTML = `
-            <li><a href="Pages/panier.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="Pages/Contact.html">Contact</a></li>
-            
-            <li><a href="./authentification/login.html" class="btn-nav">Login</a></li>
-            <li><a href="./authentification/register.html" class="btn-nav">S'inscrire</a></li>
-        `;
+    // Récupérer l'utilisateur connecté
+    const user = JSON.parse(sessionStorage.getItem("loggedUser"));
+    if (!user) {
+        alert("Veuillez vous connecter pour gérer le panier !");
+        return;
+    }
 
+    // Charger les paniers depuis localStorage
+    let carts = JSON.parse(localStorage.getItem("carts")) || {};
+    if (!carts[user.email]) carts[user.email] = [];
+
+    // Fonction pour vérifier si un produit est déjà dans le panier
+    function isInCart(productName) {
+        return carts[user.email].some(p => p.name === productName);
+    }
+
+    // Mettre à jour les icônes selon le panier existant
+    cartIcons.forEach(icon => {
+        const name = icon.dataset.name;
+        if (isInCart(name)) {
+            icon.classList.add("in-cart");
+            icon.style.color = "red"; // icône rouge si déjà ajouté
+        }
+    });
+
+    // Gérer le clic sur chaque icône
+    cartIcons.forEach(icon => {
+        icon.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            const product = {
+                name: this.dataset.name,
+                price: this.dataset.price,
+                quantite: this.dataset.quantite
+            };
+
+            if (isInCart(product.name)) {
+                // Supprimer du panier
+                carts[user.email] = carts[user.email].filter(p => p.name !== product.name);
+                this.classList.remove("in-cart");
+                this.style.color = "";
+                alert(`"${product.name}" retiré du panier !`);
+            } else {
+                // Ajouter au panier
+                carts[user.email].push(product);
+                this.classList.add("in-cart");
+                this.style.color = "red";
+                alert(`"${product.name}" ajouté au panier avec succès !`);
             }
-            else {
-        // Si connecté : afficher boutons profil et déconnexion
-        navLinks.innerHTML = `
-            <li><a href="Pages/panier.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="Pages/Contact.html">Contact</a></li>
-            <li><a href="Pages/Profile.html">Profil</a></li>
-            <li><a href="#" class="${logoutBtnClass} btn-nav">Déconnexion</a></li>
 
-        `;
-     document.addEventListener("DOMContentLoaded", () => {
-            const logoutBtn = document.querySelector(".logout-btn");
-
-            if (logoutBtn) {
-                logoutBtn.addEventListener("click", (e) => {
-                    e.preventDefault();
-
-                    // Supprimer la session
-                    sessionStorage.removeItem("loggedUser");
-
-                    alert("Vous êtes déconnecté.");
-
-                    // Redirection vers login
-                    window.location.href = "./authentification/login.html";
-                });
-            }
+            // Enregistrer le panier mis à jour
+            localStorage.setItem("carts", JSON.stringify(carts));
         });
-}
-            // Charger les paniers depuis localStorage
-            let carts = JSON.parse(localStorage.getItem("carts")) || {};
-            if (!carts[user.email]) carts[user.email] = [];
+    });
+});
 
-            // Fonction pour vérifier si un produit est déjà dans le panier
-            function isInCart(productName) {
-                return carts[user.email].some(p => p.name === productName);
-            }
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.querySelector(".logout-btn");
 
-            // Mettre à jour les icônes selon le panier existant
-            cartIcons.forEach(icon => {
-                const name = icon.dataset.name;
-                if (isInCart(name)) {
-                    icon.classList.add("in-cart");
-                    icon.style.color = "red"; // icône rouge si déjà ajouté
-                }
-            });
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", (e) => {
+            e.preventDefault(); 
 
-            // Gérer le clic sur chaque icône
-            cartIcons.forEach(icon => {
-                icon.addEventListener("click", function (e) {
-                    e.preventDefault();
+            // Supprimer la session
+            sessionStorage.removeItem("loggedUser");
 
-                    const product = {
-                        name: this.dataset.name,
-                        price: this.dataset.price,
-                        quantite: this.dataset.quantite
-                    };
+            alert("Vous êtes déconnecté.");
 
-                    if (isInCart(product.name)) {
-                        // Supprimer du panier
-                        carts[user.email] = carts[user.email].filter(p => p.name !== product.name);
-                        this.classList.remove("in-cart");
-                        this.style.color = "";
-                        alert(`"${product.name}" retiré du panier !`);
-                    } else {
-                        // Ajouter au panier
-                        carts[user.email].push(product);
-                        this.classList.add("in-cart");
-                        this.style.color = "red";
-                        alert(`"${product.name}" ajouté au panier avec succès !`);
-                    }
-
-                    // Enregistrer le panier mis à jour
-                    localStorage.setItem("carts", JSON.stringify(carts));
-                });
-            });
+            // Redirection vers login
+            window.location.href = "./authentification/login.html";
         });
+    }
+});
 
-       
-    </script>
+</script>
 
 
 
@@ -127,8 +105,11 @@
             <li><a href="Pages/Contact.html">Contact</a></li>
             <li><a href="Pages/Profile.html">Profil</a></li>
 
-            <li><a href="./authentification/login.html" class="btn-nav">connexion</a></li>
-            <li><a href="./authentification/register.html" class="btn-nav">S'inscrire</a></li>
+            <li style="padding-right: 20px;">
+                <a href="./authentification/login.html" class="logout-btn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </li>
         </ul>
 
         <div class="burger">
@@ -158,8 +139,7 @@
                 <div class="description_item">
                     <h6>Chair 1</h6>
                     <p class="price">50DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 1" data-price="50DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 1" data-price="50DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -170,8 +150,7 @@
                 <div class="description_item">
                     <h6>Chair 2</h6>
                     <p class="price">80DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 2" data-price="80DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 2" data-price="80DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -182,8 +161,7 @@
                 <div class="description_item">
                     <h6>Chair 3</h6>
                     <p class="price">54DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 3" data-price="54DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 3" data-price="54DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -194,8 +172,7 @@
                 <div class="description_item">
                     <h6>Chair 4</h6>
                     <p class="price">90DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 4" data-price="90DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 4" data-price="90DT"data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -206,8 +183,7 @@
                 <div class="description_item">
                     <h6>Chair 5</h6>
                     <p class="price">40DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 5" data-price="40DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 5" data-price="40DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -218,8 +194,7 @@
                 <div class="description_item">
                     <h6>Chair 6</h6>
                     <p class="price">66DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 6" data-price="66DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 6" data-price="66DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -230,8 +205,7 @@
                 <div class="description_item">
                     <h6>Chair 7</h6>
                     <p class="price">83DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 7" data-price="83DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 7" data-price="83DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -242,8 +216,7 @@
                 <div class="description_item">
                     <h6>Chair 8</h6>
                     <p class="price">80DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 8" data-price="80DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 8" data-price="80DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>
@@ -254,8 +227,7 @@
                 <div class="description_item">
                     <h6>Chair 9</h6>
                     <p class="price">74DT</p>
-                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 9" data-price="74DT"
-                        data-quantite="1"></i>
+                    <i class="fa-solid fa-cart-shopping add-to-cart" data-name="Chair 9" data-price="74DT" data-quantite="1"></i>
                 </div>
             </div>
         </a>

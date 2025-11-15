@@ -14,50 +14,11 @@
 
             // Récupérer l'utilisateur connecté
             const user = JSON.parse(sessionStorage.getItem("loggedUser"));
-            
-              
-            
             if (!user) {
-              alert("Veuillez vous connecter pour gérer le panier !");
+                alert("Veuillez vous connecter pour gérer le panier !");
                 return;
-                navLinks.innerHTML = `
-            <li><a href="Pages/panier.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="Pages/Contact.html">Contact</a></li>
-            
-            <li><a href="./authentification/login.html" class="btn-nav">Login</a></li>
-            <li><a href="./authentification/register.html" class="btn-nav">S'inscrire</a></li>
-        `;
-
             }
-            else {
-        // Si connecté : afficher boutons profil et déconnexion
-        navLinks.innerHTML = `
-            <li><a href="Pages/panier.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="Pages/Contact.html">Contact</a></li>
-            <li><a href="Pages/Profile.html">Profil</a></li>
-            <li><a href="#" class="${logoutBtnClass} btn-nav">Déconnexion</a></li>
 
-        `;
-     document.addEventListener("DOMContentLoaded", () => {
-            const logoutBtn = document.querySelector(".logout-btn");
-
-            if (logoutBtn) {
-                logoutBtn.addEventListener("click", (e) => {
-                    e.preventDefault();
-
-                    // Supprimer la session
-                    sessionStorage.removeItem("loggedUser");
-
-                    alert("Vous êtes déconnecté.");
-
-                    // Redirection vers login
-                    window.location.href = "./authentification/login.html";
-                });
-            }
-        });
-}
             // Charger les paniers depuis localStorage
             let carts = JSON.parse(localStorage.getItem("carts")) || {};
             if (!carts[user.email]) carts[user.email] = [];
@@ -107,7 +68,24 @@
             });
         });
 
-       
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoutBtn = document.querySelector(".logout-btn");
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    // Supprimer la session
+                    sessionStorage.removeItem("loggedUser");
+
+                    alert("Vous êtes déconnecté.");
+
+                    // Redirection vers login
+                    window.location.href = "./authentification/login.html";
+                });
+            }
+        });
+
     </script>
 
 
@@ -123,12 +101,15 @@
         <ul class="nav-links">
             <li><a href="Pages/panier.html"> <i class="fa-solid fa-cart-shopping"></i></a>
             </li>
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="acceuil.html">Accueil</a></li>
             <li><a href="Pages/Contact.html">Contact</a></li>
             <li><a href="Pages/Profile.html">Profil</a></li>
 
-            <li><a href="./authentification/login.html" class="btn-nav">connexion</a></li>
-            <li><a href="./authentification/register.html" class="btn-nav">S'inscrire</a></li>
+            <li style="padding-right: 20px;">
+                <a href="./authentification/login.html" class="logout-btn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </li>
         </ul>
 
         <div class="burger">
@@ -271,7 +252,7 @@
             <div class="footer-section links">
                 <h4>Liens rapides</h4>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="acceuil.html">Accueil</a></li>
                     <li><a href="Pages/Contact.html">Contact</a></li>
                     <li><a href="Pages/Profile.html">Mon compte</a></li>
                 </ul>

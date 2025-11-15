@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js"></script>
+   
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="right">
+            <h1 style="text-align: center; margin-top:20px;">Inscription</h1>
+            <form onsubmit="RegisterUser(event)">
+                <div class="info">
+                    <div class="info_left">
+                        <p>Nom </p>
+                        <input id="nom" type="text" required>
+                        <p>Email</p>
+                        <input id="email" type="email">
+                        <p>Télephone</p>
+                        <input id="tel" type="number">
+                        <p>Confirmation Mot de passe</p>
+                        <input id="conf_pass" type="password" required> <br>
+                    </div>
+
+
+                    <div class="info_right">
+                        <p>Prénom</p>
+                        <input id="prenom" type="text" required>
+                        <p>Adresse</p>
+                        <input id="adresse" type="text">
+                        <p>Mot de passe</p>
+                        <input id='pass' type="password" required>
+                        <button type="submit">Créer un Compte</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+</body>
+
+</html>

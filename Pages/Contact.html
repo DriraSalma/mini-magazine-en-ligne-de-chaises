@@ -10,22 +10,97 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+<script>
+    window.onload = function () {
+        const user = JSON.parse(sessionStorage.getItem("loggedUser"));
+
+        if (!user) {
+            alert("Veuillez vous connecter !");
+            window.location.href = "../authentification/login.html";
+        }
+
+
+
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // empêcher le rechargement
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            // ---- VALIDATION ----
+            if (name.length < 3) {
+                alert("Le nom doit contenir au moins 3 caractères.");
+                return;
+            }
+            if (!email.includes("@") || !email.includes(".")) {
+                alert("Veuillez entrer un email valide.");
+                return;
+            }
+            if (message.length < 10) {
+                alert("Le message doit contenir au moins 10 caractères.");
+                return;
+            }
+
+            // ---- ENREGISTRER DANS LOCALSTORAGE ----
+            let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+
+            messages.push({
+                name: name,
+                email: email,
+                message: message,
+                date: new Date().toLocaleString()
+            });
+
+            localStorage.setItem("contactMessages", JSON.stringify(messages));
+
+            alert("Votre message a été envoyé avec succès !");
+            form.reset();
+        });
+
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const logoutBtn = document.querySelector(".logout-btn");
+
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                // Supprimer la session
+                sessionStorage.removeItem("loggedUser");
+
+                alert("Vous êtes déconnecté.");
+
+                // Redirection vers login
+                window.location.href = "../authentification/login.html";
+            });
+        }
+    });
+
+</script>
 
 <body>
 
     <nav class="navbar">
         <div class="logo"><img src="../images/logo.png" alt="logo"></div>
 
-         <input type="text" placeholder="Rechercher..." class="sidebar-search">
+        <input type="text" placeholder="Rechercher..." class="sidebar-search">
         <ul class="nav-links">
-            <li><a> <i class="fa-solid fa-cart-shopping"></i></a> 
-            </li>
-            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../Pages/panier.html"> <i class="fa-solid fa-cart-shopping"></i></a> </li>
+            <li><a href="../acceuil.html">Accueil</a></li>
             <li><a href="Contact.html">Contact</a></li>
             <li><a href="Profile.html">Profil</a></li>
 
             <li style="padding-right: 20px;">
-                <a href="login.html" class="logout-btn">
+                <a href="../authentification/login.html" class="logout-btn">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </a>
             </li>
@@ -47,14 +122,17 @@
         <div class="contact-container">
 
 
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <input type="text" name="name" placeholder="Votre nom" required>
                 <input type="email" name="email" placeholder="Votre email" required>
                 <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-                <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+                <button type="submit" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Envoyer
+                </button>
             </form>
-           
-            
+
+
+
         </div>
     </section>
     <footer class="site-footer">
@@ -66,7 +144,7 @@
             <div class="footer-section links">
                 <h4>Liens rapides</h4>
                 <ul>
-                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../acceuil.html">Accueil</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                     <li><a href="Profile.html">Mon compte</a></li>
                 </ul>

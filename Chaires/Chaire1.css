@@ -147,7 +147,7 @@
 }
 
 
-/* 🌐 Version mobile */
+/*  Version mobile */
 @media screen and (max-width: 600px) {
     .article-container {
         display: flex;

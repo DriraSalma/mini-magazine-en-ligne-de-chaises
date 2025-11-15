@@ -79,7 +79,29 @@ body {
     font-size: 14px;
     color: #555;
 }
+.add-to-cart {
+    cursor: pointer;
+    transition: color 0.3s;
+}
 
+.add-to-cart.in-cart {
+    color: red;
+}
+
+/* Style des boutons Login et S'inscrire */
+.btn-nav {
+    background-color: #ff6600;
+    color: white !important;
+    padding: 8px 18px !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-nav:hover {
+    background-color: #e05500;
+    transform: translateY(-2px);
+}
 
 /* ----- GRAND ÉCRAN ----- */
 @media screen and (min-width: 1025px) {
